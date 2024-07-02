@@ -1,0 +1,13 @@
+.whole-header {
+  background: #000 !important;
+  color: whitesmoke !important;
+  opacity: 1 !important;
+}
+
+.title {
+  color: goldenrod !important;
+  font-weight: bolder;
+}
+.link {
+  text-decoration: none;
+}

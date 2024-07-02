@@ -14,6 +14,9 @@ const AllResults = () => {
     const data = await response.json();
     setAllSearchedMovies(data.results);
   };
+  //   const searchedMovie = allSearchedMovies?.map((item) => {
+  //     return item;
+  //   });
 
   useEffect(() => {
     fetchMovie();
@@ -23,7 +26,7 @@ const AllResults = () => {
       <div className="allresults">
         {allSearchedMovies.length > 1 ? (
           <div className="allresultsTitle">
-            <h3 className="mx-3 text-white">
+            <h3 className="p-3 text-white">
               Search Results for "<span style={{ color: "red" }}>{id}</span>"
             </h3>
             <div className="movielist ">

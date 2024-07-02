@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
-  const handleOnClick = (title) => {
-    navigate(`/searchedmovie/${title}`);
+  const handleOnClick = (title, id) => {
+    navigate(`/searchedresultmovie/${title}`);
   };
   return (
     <>
       <Card
         className="custom-color w-100 text-white "
-        onClick={() => handleOnClick(movie.title)}
+        onClick={() => handleOnClick(movie.title, movie.id)}
       >
         {movie && movie.poster_path ? (
           <Card.Img

@@ -6,16 +6,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./header.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Header() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [movieInput, setMovieInput] = useState([]);
 
   const handleOnChange = (e) => {
-    setMovieName(e.target.value);
+    const { value } = e.target;
+    setMovieInput(value);
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // navigate(`/movieresults/${movieName}`);
+    navigate(`/allresults/${movieInput}`);
   };
   return (
     <Navbar expand="lg" className="  whole-header" variant="dark">
@@ -47,7 +50,7 @@ function Header() {
                 <NavDropdown.Item href="#action5">All Movies</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex " md={6}>
+            <Form className="d-flex " md={6} onSubmit={handleOnSubmit}>
               <Form.Control
                 type="search"
                 placeholder="Enter Movie Title"
@@ -55,7 +58,7 @@ function Header() {
                 aria-label="Search"
                 name="inputfield"
                 required
-                // onChange={handleOnChange}
+                onChange={handleOnChange}
               />
               <Button variant="outline-light" type="submit">
                 Search
